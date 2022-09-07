@@ -1,0 +1,47 @@
+jug1_actual=int(input("Enter Jug 1 Capacity: "));
+jug2_actual=int(input("Enter Jug 2 Capacity: "));
+jug1_initial=int(input("Initially Water in Jug 1: "));
+jug2_initial=int(input("Initially Water in Jug 2: "));
+jug1_final=int(input("Final State of Jug 1: "));
+jug2_final=int(input("Final State of Jug 2: "));
+print("List Of Operations You can Do:\n");
+print("1.Fill Jug 1 Completely\n");
+print("2.Fill Jug 2 Completely\n");
+print("3.Empty Jug 1 Completely\n");
+print("4.Empty Jug 2 Completely\n");
+print("5.Pour From Jug 1 till Jug 2 filled Completely or 1 becomes empty\n");
+print("6.Pour From Jug 2 till Jug 1 filled Completely or 2 becomes empty\n");
+print("7.Pour all From Jug 2 to Jug 1\n");
+print("8.Pour all From Jug 1 to Jug 2\n");
+while ((jug1_initial!=jug1_final or jug2_initial!=jug2_final)):
+    op=int(input("Enter the Operation: "));
+    if(op==1):
+        jug1_initial=jug1_actual;
+    elif(op==2):
+        jug2_initial=jug2_actual;
+    elif(op==3):
+        jug1_initial=0;
+    elif(op==4):
+        jug2_initial=0;
+    elif(op==5):
+        if(jug2_actual-jug2_initial>jug1_initial):
+            jug2_initial=jug1_initial+jug2_initial;
+            jug1_initial=0;
+        else:
+            jug1_initial=jug1_initial-(jug2_actual-jug2_initial);
+            jug2_initial=jug2_actual;
+    elif(op==6):
+        if(jug1_actual-jug1_initial>jug2_initial):
+            jug1_initial=jug1_initial+jug2_initial;
+            jug2_initial=0;
+        else:
+            jug2_initial=jug2_initial-(jug1_actual-jug1_initial);
+            jug1_initial=jug1_actual;
+    elif(op==7):
+        
+        jug1_initial=jug1_initial+jug2_initial;
+        jug2_initial=0;
+    elif(op==8):
+        jug2_initial=jug2_initial+jug1_initial;
+        jug1_initial=0;
+    print(jug1_initial,jug2_initial);
